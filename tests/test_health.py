@@ -17,3 +17,5 @@ class TestHealthView(unittest.TestCase):
         data = self.response.data.decode('utf-8')
         self.assertEqual("ok", json.loads(data)['message'])
 
+    def test_get_content_type(self):
+        self.assertEqual("application/json", self.response.content_type)
