@@ -1,3 +1,4 @@
+import json
 from tests.utils import get_app
 
 import unittest
@@ -13,5 +14,6 @@ class TestHealthView(unittest.TestCase):
         self.assertEqual(200, self.response.status_code)
 
     def test_get_response(self):
-        self.assertEqual("ok", self.response.data.decode('utf-8'))
+        data = self.response.data.decode('utf-8')
+        self.assertEqual("ok", json.loads(data)['message'])
 
