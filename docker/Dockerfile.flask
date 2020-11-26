@@ -1,0 +1,23 @@
+FROM python:3.8
+MAINTAINER Marco Cardoso
+
+# Create the user to run the app
+RUN adduser --disabled-password --gecos '' app-user
+
+# Install property_anomaly_detector dependencies
+RUN mkdir -p /opt/services/forms_app
+
+COPY . /opt/services/forms_app
+WORKDIR /opt/services/forms_app
+RUN pip install -r requirements.txt
+RUN pip install gunicorn
+
+# Change run.sh permissions
+RUN chmod +x /opt/services/forms_app/run.sh
+
+RUN chown -R app-user:app-user ./
+
+# Expose port and running cmd as app-user
+USER app-user
+EXPOSE 5000
+CMD ["/bin/sh", "run.sh"]

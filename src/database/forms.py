@@ -1,3 +1,7 @@
+"""
+    Module with the methods related to the 'forms' database collection
+"""
+
 from bson.objectid import ObjectId
 
 from pymongo import MongoClient
