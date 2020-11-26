@@ -1,4 +1,4 @@
-import uuid
+from bson.objectid import ObjectId
 
 from pymongo import MongoClient
 from pymongo.cursor import Cursor
@@ -15,5 +15,5 @@ def find_all(client: MongoClient) -> Cursor:
     return client[COLLECTION].find({})
 
 
-def find_by_id(client: MongoClient, id: uuid):
-    return client[COLLECTION].find({'_id': id})[0]
+def find_by_id(client: MongoClient, id):
+    return client[COLLECTION].find({'_id': ObjectId(id)}, {'_id' : False})[0]
