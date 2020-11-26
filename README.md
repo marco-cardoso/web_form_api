@@ -8,7 +8,7 @@
 
 ## Requirements
 
-1. At least dockver v19.03.12
+1. At least docker v19.03.12
 2. At least docker-compose v1.26.2
 
 ## How to execute it ?
