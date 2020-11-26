@@ -38,9 +38,9 @@ class TestDatabase(unittest.TestCase):
 
         amt_docs = len(list(forms.find_all(self.db)))
         self.assertIsNotNone(result.inserted_id)
-        self.assertEquals(amt_docs, 2)
+        self.assertEqual(amt_docs, 2)
 
     def test_get_form(self):
         result = forms.find_by_id(self.db, self.saved_form_id)
-        self.assertEquals(result["background_colour"], "234 224 234")
-        self.assertEquals(result["body text"], "Testing")
+        self.assertEqual(result["background_colour"], "234 224 234")
+        self.assertEqual(result["body text"], "Testing")
