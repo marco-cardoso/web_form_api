@@ -1,5 +1,6 @@
 from flask import Flask
-from controllers import forms, main
+from src.controllers import forms
+from src.controllers import main
 from config import DevelopmentConfig
 
 
